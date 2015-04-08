@@ -42,5 +42,6 @@ RUN touch /var/log/httpd/access_log /var/log/httpd/error_log
 # Start mysql
 EXPOSE 3306
 RUN /usr/bin/mysql_install_db
+COPY www.deepskylog.org.sql /www.deepskylog.org.sql
 
 CMD ["/startServices.sh"]
