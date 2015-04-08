@@ -1,9 +1,11 @@
 #!/bin/bash
 tail -F /var/log/httpd/* &
-exec httpd -D FOREGROUND &
-exec /usr/bin/mysqld_safe &
-exec sleep 10s
-exec echo "CREATE database deepskylog;" | mysql &
-exec mysql deepskylog < /www.deepskylog.org.sql
-exec rm /www.deepskylog.org.sql
+/usr/bin/mysqld_safe &
+sleep 10s
+echo "CREATE database deepskylog;" | mysql 
+mysql deepskylog < /www.deepskylog.org.sql 
+rm /www.deepskylog.org.sql 
 
+# TODO: Execute database update scripts
+
+exec httpd -D FOREGROUND 
