@@ -35,11 +35,12 @@ RUN yum -y install php php-xml php-mbstring php-mcrypt php-cli php-gd
 # Start httpd
 EXPOSE 80
 
-ADD startHttpd.sh /startHttpd.sh
+ADD startServices.sh /startServices.sh
 RUN chmod 755 /*.sh
 RUN touch /var/log/httpd/access_log /var/log/httpd/error_log
-CMD ["/startHttpd.sh"]
 
 # Start mysql
-#EXPOSE 3306
+EXPOSE 3306
+RUN /usr/bin/mysql_install_db
 
+CMD ["/startServices.sh"]
