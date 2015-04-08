@@ -31,3 +31,15 @@ RUN yum -y install mysql mysql-devel php-mysql mysql-server compat-mysql51
 
 # Install php
 RUN yum -y install php php-xml php-mbstring php-mcrypt php-cli php-gd
+
+# Start httpd
+EXPOSE 80
+
+ADD startHttpd.sh /startHttpd.sh
+RUN chmod 755 /*.sh
+RUN touch /var/log/httpd/access_log /var/log/httpd/error_log
+CMD ["/startHttpd.sh"]
+
+# Start mysql
+#EXPOSE 3306
+
