@@ -5,4 +5,4 @@ The Docker scripts to create the DeepskyLog Docker image.
 `docker build -t deepskylog .`
 
 ## Running the docker container
-docker run -v /Users/wim/sourcecode/deepskylog/trunk:/var/www/html -t -p 80:80 -p 3306:3306 deepskylog
+`docker run -v /Users/wim/sourcecode/deepskylog/trunk:/var/www/html -t -p 80:80 -p 3306:3306 deepskylog`
