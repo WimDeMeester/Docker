@@ -29,4 +29,5 @@ RUN yum-config-manager --enable remi
 # Install mysql
 RUN yum -y install mysql mysql-devel php-mysql mysql-server compat-mysql51
 
-# TODO: INSTALL php
+# Install php
+RUN yum -y install php php-xml php-mbstring php-mcrypt php-cli php-gd
