@@ -39,9 +39,12 @@ ADD startServices.sh /startServices.sh
 RUN chmod 755 /*.sh
 RUN touch /var/log/httpd/access_log /var/log/httpd/error_log
 
+# Add a data volume for the mysql database
+VOLUME /var/lib/mysql
+
 # Start mysql
 EXPOSE 3306
 RUN /usr/bin/mysql_install_db
 COPY www.deepskylog.org.sql /www.deepskylog.org.sql
 
-CMD ["/startServices.sh"]
+#CMD ["/startServices.sh"]

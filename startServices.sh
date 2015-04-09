@@ -1,5 +1,6 @@
 #!/bin/bash
 tail -F /var/log/httpd/* &
+mysql_install_db
 /usr/bin/mysqld_safe &
 sleep 10s
 echo "CREATE database deepskylog;" | mysql 
