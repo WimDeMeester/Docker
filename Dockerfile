@@ -47,4 +47,4 @@ EXPOSE 3306
 RUN /usr/bin/mysql_install_db
 COPY www.deepskylog.org.sql /www.deepskylog.org.sql
 
-#CMD ["/startServices.sh"]
+CMD ["/startServices.sh"]
