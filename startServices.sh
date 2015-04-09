@@ -1,5 +1,5 @@
 #!/bin/bash
-tail -F /var/log/httpd/* &
+tail -F /var/log/httpd/error_log &
 mysql_install_db &
 /usr/bin/mysqld_safe &
 sleep 10s
@@ -10,6 +10,8 @@ if [ "$RESULT" != "deepskylog" ]; then
   rm /www.deepskylog.org.sql 
 fi
 
-# TODO: Execute database update scripts
+# Add an admin user
+mysql -uroot -e "CREATE USER 'admin'@'%' IDENTIFIED BY 'deepskylog'"
+mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION"
 
 exec httpd -D FOREGROUND 
