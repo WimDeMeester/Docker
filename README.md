@@ -1,6 +1,10 @@
 # Docker
 The Docker scripts to create the DeepskyLog Docker image.
 
+## Install docker
+Docker can be easily installed on Linux machines. On Mac or Windows, download [boot2docker] (https://github.com/boot2docker/boot2docker/)
+before executing the following command, start boot2docker on your Mac or Windows machine.
+
 ## Making the mysql Data Volume container
 `docker build -t="mysql:v5.0" mysql-container`
 
