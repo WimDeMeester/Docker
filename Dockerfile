@@ -35,6 +35,7 @@ RUN yum -y install php php-xml php-mbstring php-mcrypt php-cli php-gd
 # Start httpd
 EXPOSE 80
 
+COPY httpd.conf /etc/httpd/conf/httpd.conf
 ADD startServices.sh /startServices.sh
 RUN chmod 755 /*.sh
 RUN touch /var/log/httpd/access_log /var/log/httpd/error_log
