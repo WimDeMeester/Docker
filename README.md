@@ -19,6 +19,17 @@ Before executing the following commands, start boot2docker on your Mac or Window
 
 Change `/Users/wim/sourcecode/deepskylog/trunk` with the location of the DeepskyLog source code.
 
+## Save the state of the docker container
+From time to time, you want to save the state of the container. Possible reasons are:
+
++ There are some Scientific Linux updates that are installed every time.
++ You changed some things in the database and you want to have these changes available next time your start up the container.
+
+The command to save the state is:
+
+    docker commit `docker ps | grep deepskylog | awk '{print $1;}'` deepskylog:v5.0
+
+
 ## Find out the IP address of the webserver for DeepskyLog
 * Mac: `boot2docker ip` (returns 192.168.59.103)
 * Windows: `boot2docker.exe ip`

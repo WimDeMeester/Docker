@@ -5,7 +5,10 @@ SERVERIP=134.58.117.134
 ping -c 3 $SERVERIP > /dev/null 2>&1
 if [ $? -eq 0 ]
 then
+  echo "Installing Scientific Linux updates"
   yum -y update
+else
+  echo "No network found, not installing Scientific Linux updates"
 fi
 
 tail -F /var/log/httpd/error_log &
