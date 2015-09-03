@@ -1,4 +1,4 @@
-FROM ringo/scientific:6.5
+FROM ringo/scientific:6.6
 MAINTAINER Wim De Meester <deepskywim@gmail.com>
 
 # Update all packages
