@@ -39,7 +39,7 @@ The command to save the state is:
 
 In `lib/setup/`, copy the file `databaseInfo.php.dist` to `databaseInfo.php` and enter the correct ip address in the following line:
 
-`$baseURL      = "http://192.168.59.103/";`
+`$baseURL      = "http://192.168.99.100/";`
 
 ## Dump the database (only on Linux)
 This can be used to update the database which is added to the Docker image.
