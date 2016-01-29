@@ -27,7 +27,9 @@ RUN yum -y install yum-utils
 RUN yum-config-manager --enable remi
 RUN yum-config-manager --enable remi-php56
 
-# Install mysql
+# Install mariadb 10.1
+RUN cd /etc/yum.repos.d/
+RUN wget https://github.com/DeepskyLog/Docker/blob/master/MariaDB101.repo
 RUN yum -y install mysql mysql-devel mysql-server compat-mysql51
 
 # Install php 5.6
