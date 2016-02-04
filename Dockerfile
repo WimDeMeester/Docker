@@ -28,8 +28,8 @@ RUN yum-config-manager --enable remi
 RUN yum-config-manager --enable remi-php56
 
 # Install mariadb 10.1
-RUN cd /etc/yum.repos.d/
-RUN wget https://github.com/DeepskyLog/Docker/blob/master/MariaDB101.repo
+RUN wget -O /etc/yum.repos.d/MariaDB101.repo https://raw.githubusercontent.com/DeepskyLog/Docker/master/MariaDB101.repo
+RUN yum clean all
 RUN yum -y install mysql mysql-devel mysql-server compat-mysql51
 
 # Install php 5.6
@@ -48,7 +48,6 @@ VOLUME /var/lib/mysql
 
 # Start mysql
 EXPOSE 3306
-RUN /usr/bin/mysql_install_db
 COPY www.deepskylog.org.sql /www.deepskylog.org.sql
 
 CMD ["/startServices.sh"]
